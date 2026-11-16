@@ -18,7 +18,7 @@
 
 安装后从桌面启动，跟随引导完成设置。USBPcap 安装需要管理员权限；程序日常使用以普通用户启动。完整说明见 [安装与使用](packaging/windows/README-安装与使用.txt)。安装包尚未签名，Windows 可能提示未知发布者。
 
-本仓库默认不包含驱动、微信输入法或编译产物；参照 [构建说明](docs/BUILD-WINDOWS.md) 获取依赖并构建。可以从项目 Releases 获取维护者提供的安装包（如果已有发布）。
+从 [Releases 下载首个测试安装包](https://github.com/ToStardust/xiaomi-remote-voice/releases/tag/v0.1.0-beta.1)。源码仓库不包含驱动、微信输入法或编译产物；如需自行构建，请参照 [构建说明](docs/BUILD-WINDOWS.md) 获取依赖。
 
 ## 隐私
 
