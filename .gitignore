@@ -1,0 +1,37 @@
+node_modules/
+tmp/
+*.log
+.claude/
+.env
+.env.local
+.env.*.local
+!.env.example
+.DS_Store
+npm-debug.log*
+.npm-cache/
+dist-desktop/
+out/
+build-assets/installers/*.exe
+build-assets/remote-broker/*.exe
+build-assets/input-helper/*.exe
+build-assets/virtual-microphone/*
+windows/virtual-microphone/publisher/obj/
+windows/virtual-microphone/.reference/
+
+windows/virtual-microphone/driver/sysvad/**/obj/
+windows/virtual-microphone/driver/sysvad/**/x64/
+windows/virtual-microphone/driver/sysvad/TabletAudioSample/TabletAu.*/
+
+# Local remote-voice build outputs and secrets
+packaging/构建/
+remote-companion/bin/
+remote-companion/obj/
+dist/
+*.asar
+
+# Firmware belongs to the upstream ESP32 project and is not required here
+firmware/
+
+# Upstream agent instructions are not project instructions here
+AGENTS.md
+CLAUDE.md

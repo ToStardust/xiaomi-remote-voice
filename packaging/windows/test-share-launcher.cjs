@@ -1,0 +1,11 @@
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
+const source=fs.readFileSync(path.join(__dirname,'../构建/share-server.mjs'),'utf8');
+const start=source.indexOf('function launchRemoteApp(command) {'), end=source.indexOf('// While a remote preview',start);
+assert.ok(start>=0&&end>start,'could not isolate launcher');
+const calls=[];
+const context={path:path.win32,fs:{existsSync:x=>x==='C:\\Users\\测试 User\\AppData\\Remote Helper\\focus.exe'},spawn:(...args)=>{calls.push(args);return{unref(){}}},log() {}};
+vm.createContext(context);vm.runInContext(source.slice(start,end),context);
+const exe='C:\\Users\\测试 User\\AppData\\Remote Helper\\focus.exe';context.launchRemoteApp(exe);
+assert.equal(calls[0][0],exe);assert.equal(calls[0][1].length,0);
+context.launchRemoteApp('notepad');assert.equal(calls[1][0],'cmd.exe');
+console.log('Application launch supports spaces and Unicode; generic commands retain fallback.');
